@@ -11,7 +11,13 @@ const userSchema = new Schema({
     is_online: { type: Boolean, default: false },
     profile_img_id: { type: String, default: ''},
     profile_img_url: {type: String, default: ''},
-    bio: String, //Short description
+    photo_id : [String],
+    photo_url : [String],
+    videos:{
+        id: [String],
+        url: [String]
+    },
+    bio: String, 
 
     interests: {
         type: String,

@@ -91,7 +91,7 @@ router.post('/login', async (req, res) => {
         }, process.env.JWT_SECRET, { expiresIn: '1d' })
 
         //update user document to online
-        user = await User.findOneAndUpdate({ _id: user._id }, { is_online: true }, { new: true }).lean()
+        user = await User.findOneAndUpdate({ _id: user._id }, { is_online: true }, { returnDocument: 'after' }).lean()
 
         //send response
         res.status(200).send({ status: 'ok', msg: 'success', user, token })
